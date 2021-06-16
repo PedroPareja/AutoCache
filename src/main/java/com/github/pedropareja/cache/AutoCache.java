@@ -1,4 +1,4 @@
-package com.github.pedropareja.jcache;
+package com.github.pedropareja.cache;
 
 import java.util.Map;
 import java.util.Set;
@@ -17,7 +17,7 @@ import java.util.concurrent.Future;
  * @param <E> Exception type
  */
 
-public class JCache <K extends Comparable<K>,V,E extends Exception> implements Cache<K,V,E>
+public class AutoCache <K extends Comparable<K>,V,E extends Exception> implements Cache<K,V,E>
 {
     private static final int DEFAULT_MINUTES_TO_EXPIRE = 30;
     private static final int DEFAULT_MINUTES_TO_PURGE = 120;
@@ -55,7 +55,7 @@ public class JCache <K extends Comparable<K>,V,E extends Exception> implements C
      * @param dataLoader {@link DataLoader}: defines how data is loaded
      */
 
-    public JCache(DataLoader<K,V,E> dataLoader)
+    public AutoCache(DataLoader<K,V,E> dataLoader)
     {
         this(dataLoader, () -> new ConcurrentHashMap<>());
     }
@@ -70,7 +70,7 @@ public class JCache <K extends Comparable<K>,V,E extends Exception> implements C
      */
 
     @SuppressWarnings("unchecked")
-    public <T extends Exception> JCache(DataLoader<K,V,E> dataLoader, MapFactory<K,T> mapFactory) throws T
+    public <T extends Exception> AutoCache(DataLoader<K,V,E> dataLoader, MapFactory<K,T> mapFactory) throws T
     {
         this.map = (Map<K,Entry<V>>) mapFactory.newInstance();
         this.dataLoader = dataLoader;

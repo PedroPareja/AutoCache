@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group 'com.github.pedropareja.jcache'
+group 'com.github.pedropareja'
 version '0.4.1'
 
 repositories {

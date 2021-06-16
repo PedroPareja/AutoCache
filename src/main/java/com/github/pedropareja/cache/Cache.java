@@ -1,4 +1,4 @@
-package com.github.pedropareja.jcache;
+package com.github.pedropareja.cache;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
