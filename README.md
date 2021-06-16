@@ -1,2 +1,2 @@
-# JCache
-Java Cache
+# Auto-Cache
+Java Auto-Managed Cache
